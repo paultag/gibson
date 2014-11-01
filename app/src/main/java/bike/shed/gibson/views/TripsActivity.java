@@ -1,5 +1,9 @@
 package bike.shed.gibson.views;
 
+/**
+ *
+ */
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -14,8 +18,14 @@ import bike.shed.gibson.models.Stay;
 import bike.shed.gibson.services.TravelAPI;
 import bike.shed.gibson.tasks.APITask;
 
+/**
+ *
+ */
 public class TripsActivity extends Activity implements APITask.APITaskHandler<Place> {
 
+    /**
+     *
+     */
     class PlaceTask extends APITask<Place> {
         public PlaceTask(APITaskHandler<Place> callback) {super(callback);}
 
@@ -32,6 +42,10 @@ public class TripsActivity extends Activity implements APITask.APITaskHandler<Pl
         new PlaceTask(this).execute("paultag");
     }
 
+    /**
+     *
+     * @param data
+     */
     @Override
     public void handle(Place data) {
         ImageView imageView = (ImageView) this.findViewById(R.id.activity_trips_photo);
