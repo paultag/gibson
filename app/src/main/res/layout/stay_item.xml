@@ -14,28 +14,28 @@
         android:layout_height="fill_parent">
 
         <TextView
-            android:id="@+id/person_item_name"
+            android:id="@+id/stay_item_name"
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alice Peisch"/>
+            android:text="Acetarium"/>
         <TextView
-            android:id="@+id/person_item_title"
+            android:id="@+id/stay_item_place"
             android:textSize="13dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Democratic Representative"/>
+            android:text="Boston, MA"/>
         <TextView
-            android:id="@+id/person_item_district"
+            android:id="@+id/stay_item_checkin"
             android:textSize="13dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fourteenth Norfolk"/>
+            android:text="1 day from now"/>
 
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/person_item_image"
+        android:id="@+id/stay_item_image"
         android:layout_weight="1"
         android:layout_gravity="center_vertical|center_horizontal"
         android:layout_width="60dp"

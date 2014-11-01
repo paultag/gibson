@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import bike.shed.gibson.R;
 import bike.shed.gibson.models.Stay;
@@ -28,7 +29,8 @@ public class StaysAdaptor extends GenericListAdaptor<Stay> {
 
         Stay stay = (Stay) this.getItem(i);
         layout.setTag(stay.id);
-
+        ((TextView) layout.findViewById(R.id.stay_item_name)).setText(stay.lodging.name);
+        ((TextView) layout.findViewById(R.id.stay_item_place)).setText(stay.lodging.place.name);
         return layout;
     }
 }
