@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#EFECEA</color>
+    <color name="background_accent_light">#F5F3F2</color>
+    <color name="background_accent_dark">#E5E2E0</color>
+
+    <color name="text_main">#635F5D</color>
+    <color name="text_light">#8E8883</color>
+
+    <color name="line_white">#FFFFFF</color>
+    <color name="line_accent_grey">#C0C0BB</color>
+
+    <!--
+
+    <color name="data_yellow"></color>
+    <color name="data_yellow_subset"></color>
+    <color name="data_yellow_subset_alt"></color>
+
+    <color name="data_orange"></color>
+    <color name="data_orange_subset"></color>
+    <color name="data_orange_subset_alt"></color>
+
+    <color name="data_blue"></color>
+    <color name="data_blue_subset"></color>
+    <color name="data_blue_subset_alt"></color>
+
+    <color name="data_purple"></color>
+    <color name="data_purple_subset"></color>
+    <color name="data_purple_subset_alt"></color>
+
+    <color name="data_neutral"></color>
+    <color name="data_neutral_subset"></color>
+    <color name="data_neutral_subset_alt"></color>
+
+    -->
+
+    <color name="data_none">#E5E2E0</color>
+
+
+
+</resources>

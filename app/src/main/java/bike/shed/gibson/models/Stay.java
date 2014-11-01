@@ -5,7 +5,6 @@ package bike.shed.gibson.models;
  */
 public class Stay {
     public int id;
-    public String type;
-    public String time_zone;
     public boolean complete;
+    public Lodging lodging;
 }
