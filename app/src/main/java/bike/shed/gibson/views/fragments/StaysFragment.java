@@ -8,12 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import bike.shed.gibson.R;
+import bike.shed.gibson.adaptors.StaysAdaptor;
 import bike.shed.gibson.models.Place;
 import bike.shed.gibson.models.Stay;
 import bike.shed.gibson.services.TravelAPI;
@@ -31,7 +35,8 @@ public class StaysFragment extends Fragment implements APITask.APITaskHandler<Li
         }
     }
 
-    protected FrameLayout layout;
+    protected ListView layout;
+    protected StaysAdaptor staysAdaptor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,17 +49,21 @@ public class StaysFragment extends Fragment implements APITask.APITaskHandler<Li
             ViewGroup container,
             Bundle savedInstanceState
     ) {
-        new StaysTask(this).execute("paultag");
         FrameLayout frameLayout = (FrameLayout) inflater.inflate(
-                R.layout.fragment_location, container, false);
-        this.layout = frameLayout;
+                R.layout.fragment_stays, container, false);
+
+        this.layout = (ListView) frameLayout.findViewById(R.id.fragment_stays_list);
+
+        StaysAdaptor staysAdaptor = new StaysAdaptor(this.layout.getContext());
+        this.layout.setAdapter(staysAdaptor);
+        this.staysAdaptor = staysAdaptor;
+
+        new StaysTask(this).execute("paultag");
         return frameLayout;
     }
 
     @Override
     public void handle(List<Stay> data) {
-        for (Stay stay : data) {
-            Log.w("paultag", stay.lodging.name);
-        }
+        this.staysAdaptor.add(data.iterator());
     }
 }
