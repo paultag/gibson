@@ -13,9 +13,9 @@
     </style>
 
     <style name="VitaminD" parent="android:Theme.Holo.Light">
-        <item name="android:background">@color/background</item>
+        <!-- <item name="android:background">@color/background</item>
         <item name="android:textColor">@color/text_main</item>
-        <item name="android:actionBarStyle">@style/VitaminD.ActionBar</item>
+        <item name="android:actionBarStyle">@style/VitaminD.ActionBar</item> -->
     </style>
 
 </resources>
