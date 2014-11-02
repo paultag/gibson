@@ -6,19 +6,23 @@ package bike.shed.gibson.views;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import com.squareup.picasso.Picasso;
 
 import bike.shed.gibson.R;
 import bike.shed.gibson.models.Place;
 import bike.shed.gibson.services.TravelAPI;
+import bike.shed.gibson.support.TabbedActionBarActivity;
 import bike.shed.gibson.tasks.APITask;
+import bike.shed.gibson.views.fragments.StaysFragment;
 
 /**
  *
  */
-public class HomeActivity extends Activity implements APITask.APITaskHandler<Place> {
+public class HomeActivity extends TabbedActionBarActivity implements APITask.APITaskHandler<Place> {
 
     /**
      *
@@ -33,11 +37,20 @@ public class HomeActivity extends Activity implements APITask.APITaskHandler<Pla
 
 
     @Override
+    public void addTabs() {
+        this.addTab(new StaysFragment(), "Stays");
+        this.addTab(new StaysFragment(), "Stays");
+        this.addTab(new StaysFragment(), "Stays");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
 
-        /* Now, for the navbar, let's load up the header image by dispatching a LocationAPITask. */
+        ListView listView = (ListView) this.findViewById(R.id.activity_home_nav_list);
+        ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, new String[]{"Trips", "Stays", "Legs"});
+        listView.setAdapter(aa);
         String gibsonUser = this.getString(R.string.gibson_user);
         new LocationAPITask(this).execute(gibsonUser);
     }

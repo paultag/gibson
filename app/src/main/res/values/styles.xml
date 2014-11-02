@@ -12,7 +12,7 @@
         <item name="android:textColor">@color/text_main</item>
     </style>
 
-    <style name="VitaminD" parent="android:Theme.Holo.Light">
+    <style name="VitaminD" parent="Theme.AppCompat.Light">
         <!-- <item name="android:background">@color/background</item>
         <item name="android:textColor">@color/text_main</item>
         <item name="android:actionBarStyle">@style/VitaminD.ActionBar</item> -->
