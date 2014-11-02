@@ -13,9 +13,17 @@ package bike.shed.gibson.support;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import bike.shed.gibson.R;
 
@@ -30,6 +38,7 @@ public abstract class TabbedActionBarActivity extends ActionBarActivity {
 	protected TabListener tabListener;
 	protected FragmentViewPager fragmentViewPager;
 	protected ActionBar actionBar;
+    protected ArrayList<String> tabNames;
 
 	/**
 	 * Add Tabs to the Activity. This should be overridden in any subclasses.
@@ -55,6 +64,7 @@ public abstract class TabbedActionBarActivity extends ActionBarActivity {
 			throw new IllegalStateException("Attempted to addTab before onCreate");
 		}
 
+        this.tabNames.add(tabName);
 		this.fragmentViewPager.addFragment(fragment);
 		ActionBar.Tab tab = this.actionBar.newTab().setText(tabName);
 		tab.setTabListener(this.tabListener);
@@ -67,6 +77,23 @@ public abstract class TabbedActionBarActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_home);
 		ViewPager viewPager = (ViewPager) this.findViewById(R.id.activity_home_pager);
 		/* OK. Basic stuff is here. Let's do the stuff we need to do now. */
+
+        this.tabNames = new ArrayList<String>();
+        ArrayAdapter<String> aa = new ArrayAdapter<String>(
+                this, android.R.layout.simple_list_item_1, this.tabNames);
+
+        ListView lv  = (ListView) this.findViewById(R.id.activity_home_nav_list);
+        lv.setAdapter(aa);
+
+        final DrawerLayout dl = (DrawerLayout) this.findViewById(R.id.activity_home_drawer);
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> listView, View view, int position, long id) {
+                getActionBar().setSelectedNavigationItem(position);
+                dl.closeDrawer(GravityCompat.START);
+            }
+        });
 
 		/* Firstly, let's set up the Tab follower. */
 		viewPager.setOnPageChangeListener(
@@ -90,6 +117,6 @@ public abstract class TabbedActionBarActivity extends ActionBarActivity {
 		this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 		this.addTabs();
-	}
+    }
 
 }

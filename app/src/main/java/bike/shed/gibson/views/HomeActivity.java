@@ -46,11 +46,6 @@ public class HomeActivity extends TabbedActionBarActivity implements APITask.API
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        ListView listView = (ListView) this.findViewById(R.id.activity_home_nav_list);
-        ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, new String[]{"Trips", "Stays", "Legs"});
-        listView.setAdapter(aa);
         String gibsonUser = this.getString(R.string.gibson_user);
         new LocationAPITask(this).execute(gibsonUser);
     }
