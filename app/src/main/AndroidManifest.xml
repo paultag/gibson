@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/VitaminD" >
         <activity
-            android:name=".views.TripsActivity"
+            android:name=".views.HomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
