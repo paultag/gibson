@@ -19,6 +19,7 @@ import bike.shed.gibson.services.TravelAPI;
 import bike.shed.gibson.support.TabbedActionBarActivity;
 import bike.shed.gibson.tasks.APITask;
 import bike.shed.gibson.views.fragments.StaysFragment;
+import bike.shed.gibson.views.fragments.TripsFragment;
 
 /**
  *
@@ -35,8 +36,7 @@ public class HomeActivity extends TabbedActionBarActivity implements APITask.API
 
     @Override
     public void addTabs() {
-        this.addTab(new StaysFragment(), "Stays");
-        this.addTab(new StaysFragment(), "Stays");
+        this.addTab(new TripsFragment(), "Trips");
         this.addTab(new StaysFragment(), "Stays");
     }
 
