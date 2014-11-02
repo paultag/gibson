@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -24,9 +25,6 @@ import bike.shed.gibson.views.fragments.StaysFragment;
  */
 public class HomeActivity extends TabbedActionBarActivity implements APITask.APITaskHandler<Place> {
 
-    /**
-     *
-     */
     class LocationAPITask extends APITask<Place> {
         public LocationAPITask(APITaskHandler<Place> callback) {super(callback);}
         @Override
@@ -34,7 +32,6 @@ public class HomeActivity extends TabbedActionBarActivity implements APITask.API
             return travelClient.place(el);
         }
     }
-
 
     @Override
     public void addTabs() {
@@ -50,12 +47,12 @@ public class HomeActivity extends TabbedActionBarActivity implements APITask.API
         new LocationAPITask(this).execute(gibsonUser);
     }
 
-    /**
-     *
-     */
     @Override
     public void handle(Place data) {
         ImageView imageView = (ImageView) this.findViewById(R.id.activity_home_nav_header_image);
+        TextView textView = (TextView) this.findViewById(R.id.activity_home_nav_header_text);
+
+        textView.setText(data.name);
         Picasso.with(this).load(data.photo).into(imageView);
     }
 }

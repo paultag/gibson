@@ -11,7 +11,7 @@
     android:dividerHeight="0dp"
     android:background="@color/background_accent_dark">
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:id="@+id/activity_home_nav_header"
         android:layout_width="fill_parent"
@@ -23,7 +23,16 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/activity_home_nav_header_text"
+            android:layout_centerInParent="true"
+            android:textColor="@color/line_white"
+            android:text="Somewhere, USA"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/activity_home_nav_list"
