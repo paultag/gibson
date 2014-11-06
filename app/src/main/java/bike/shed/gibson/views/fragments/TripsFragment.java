@@ -11,25 +11,13 @@ import android.widget.ListView;
 import java.util.List;
 
 import bike.shed.gibson.R;
-import bike.shed.gibson.adaptors.StaysAdaptor;
 import bike.shed.gibson.adaptors.TripsAdaptor;
-import bike.shed.gibson.models.Stay;
 import bike.shed.gibson.models.Trip;
-import bike.shed.gibson.services.TravelAPI;
 import bike.shed.gibson.tasks.APITask;
+import bike.shed.gibson.tasks.TripsTask;
 
 
 public class TripsFragment extends Fragment implements APITask.APITaskHandler<List<Trip>> {
-
-    class TripsTask extends APITask<List<Trip>> {
-        public TripsTask(APITaskHandler<List<Trip>> callback) {super(callback);}
-
-        @Override
-        protected List<Trip> getData(TravelAPI travelClient, String el) {
-            return travelClient.trips(el);
-        }
-    }
-
     protected ListView layout;
     protected TripsAdaptor tripsAdaptor;
 

@@ -18,6 +18,7 @@ import bike.shed.gibson.models.Place;
 import bike.shed.gibson.services.TravelAPI;
 import bike.shed.gibson.support.TabbedActionBarActivity;
 import bike.shed.gibson.tasks.APITask;
+import bike.shed.gibson.tasks.LocationAPITask;
 import bike.shed.gibson.views.fragments.StaysFragment;
 import bike.shed.gibson.views.fragments.TripsFragment;
 
@@ -25,14 +26,6 @@ import bike.shed.gibson.views.fragments.TripsFragment;
  *
  */
 public class HomeActivity extends TabbedActionBarActivity implements APITask.APITaskHandler<Place> {
-
-    class LocationAPITask extends APITask<Place> {
-        public LocationAPITask(APITaskHandler<Place> callback) {super(callback);}
-        @Override
-        protected Place getData(TravelAPI travelClient, String el) {
-            return travelClient.place(el);
-        }
-    }
 
     @Override
     public void addTabs() {
