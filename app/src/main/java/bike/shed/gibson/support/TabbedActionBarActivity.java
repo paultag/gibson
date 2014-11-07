@@ -115,6 +115,8 @@ public abstract class TabbedActionBarActivity extends ActionBarActivity {
 
 		this.actionBar = this.getSupportActionBar();
 		this.actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        this.actionBar.setDisplayShowHomeEnabled(false);
+        this.actionBar.setDisplayShowTitleEnabled(false); /* I want the space */
 
 		this.addTabs();
     }
